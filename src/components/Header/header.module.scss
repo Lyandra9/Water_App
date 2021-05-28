@@ -1,0 +1,26 @@
+.headerContainer {
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 1.3rem;
+  color: var(--water-drop);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  height: 4.2rem;
+
+  .waterDrop {
+    font-size: 2rem;
+  }
+
+  h2 {
+    border-left: 1px solid var(--water-drop);
+    padding-left: 4rem;
+    font-size: 1.2rem;
+
+    span {
+      color: var(--user-blue);
+    }
+  }
+}
