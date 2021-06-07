@@ -1,0 +1,162 @@
+.accountContainer {
+  padding: 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--cyan-dark);
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    input[type="date"] {
+      padding-right: 1rem;
+    }
+
+    input {
+      border: 1px solid var(--light-blue);
+      border-radius: 2rem;
+      height: var(--input-height);
+      color: var(--cyan-dark);
+      padding-left: 1.2rem;
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      transition: transform 0.5s;
+
+      &:focus {
+        border: 2px solid var(--light-blue);
+        transform: scale(1.1);
+      }
+    }
+
+    label {
+      color: var(--cyan-dark);
+      margin-bottom: 0.5rem;
+      margin-left: 1.4rem;
+    }
+
+    button {
+      height: 2.5rem;
+      border-radius: 2rem;
+      border: none;
+      outline: transparent;
+      background-color: var(--cyan-dark);
+      color: #fff;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.changesContainer {
+  width: 100%;
+  height: 100%;
+
+  z-index: 20;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  span {
+    animation: slideUp 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cyan-dark);
+    color: #fff;
+    border-radius: 0.5rem;
+    width: 60%;
+    height: 4rem;
+    position: absolute;
+  }
+}
+
+.greenCircle {
+  background-color: var(--darker-cyan);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  position: relative;
+  animation: fading 2s;
+
+  span {
+    position: absolute;
+    background-color: white;
+    height: 0.2rem;
+    width: 0.9rem;
+    transition: transform;
+    transform: rotate(130deg);
+    bottom: 10px;
+    right: 3px;
+    animation: fading 2s;
+    top: 250px;
+
+    &:nth-child(2) {
+      animation: fading 2s;
+      width: 0.5rem;
+      bottom: 7px;
+      left: 4px;
+      transition: transform;
+      transform: rotate(40deg);
+    }
+  }
+}
+
+@keyframes fading {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    top: 0px;
+  }
+
+  to {
+    top: 250px;
+  }
+}

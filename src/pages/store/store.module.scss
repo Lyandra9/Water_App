@@ -1,0 +1,43 @@
+.shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--cyan-dark);
+  font-size: 1.2rem;
+  width: 100%;
+  position: relative;
+
+  .productsContainer {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 70%;
+
+    .controller {
+      position: absolute;
+      background-color: var(--cyan-dark);
+      border-radius: 50%;
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      outline: transparent;
+      font-size: 2rem;
+      color: #fff;
+      top: 100px;
+      right: -50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &:nth-child(2) {
+        left: -50px;
+      }
+    }
+
+    .carrouselContainer {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

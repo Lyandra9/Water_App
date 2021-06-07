@@ -3,7 +3,7 @@
   justify-content: space-between;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   min-height: 3rem;
-  color: var(--water-drop);
+  color: var(--cyan-dark);
   font-size: 1.5rem;
 
   .navCol {
@@ -13,8 +13,17 @@
       background-color: rgb(248, 242, 242);
       cursor: pointer;
       .menuIcon {
-        color: var(--water-drop-hover);
+        color: var(--darker-cyan);
       }
     }
+
+    &:active,
+    &:focus-within {
+      background-color: black;
+    }
   }
+}
+
+.navColHover {
+  background-color: black;
 }

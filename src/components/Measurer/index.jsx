@@ -1,14 +1,16 @@
 import styles from "./measurer.module.scss";
+import { useScoreContext } from "../../context/scoreContext";
 
 export default function Measurer() {
+  const { totalWater, drankWater } = useScoreContext();
+
   return (
     <div className={styles.measurerContainer}>
-      <h2>Sua jornada</h2>
       <div className={styles.circleContainer}>
         <div className={styles.internalCircle}>
           <div className={styles.dataCircle}>
             <h3>
-              100 <span>/</span> 500
+              {drankWater} <span>/</span> {totalWater}ml
             </h3>
           </div>
         </div>

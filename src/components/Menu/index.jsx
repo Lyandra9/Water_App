@@ -7,29 +7,29 @@ import Link from "next/link";
 export default function Menu() {
   return (
     <nav className={styles.navContainer}>
-      <div className={styles.navCol}>
-        <Link href="http://localhost:3000">
+      <Link href="http://localhost:3000">
+        <div className={styles.navCol}>
           <VscHome className={styles.menuIcon} />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
-      <div className={styles.navCol}>
-        <Link href="http://localhost:3000/ranking">
+      <Link href="http://localhost:3000/ranking">
+        <div className={styles.navCol}>
           <BsGraphUp className={styles.menuIcon} />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
-      <div className={styles.navCol}>
-        <Link href="http://localhost:3000/store">
+      <Link href="http://localhost:3000/store">
+        <div className={styles.navCol}>
           <BiStore className={styles.menuIcon} />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
-      <div className={styles.navCol}>
-        <Link href="http://localhost:3000/config">
+      <Link href="http://localhost:3000/config">
+        <div className={styles.navCol}>
           <VscGear className={styles.menuIcon} />
-        </Link>
-      </div>
+        </div>
+      </Link>
     </nav>
   );
 }

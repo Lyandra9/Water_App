@@ -15,16 +15,11 @@ a {
 
 * {
   box-sizing: border-box;
+  outline: transparent;
 }
-
-:root {
-  --user-blue: #2ebad3;
-  --water-drop: #408794;
-  --water-drop-hover: #2d6974;
-}
-
 .contentDiv {
   max-height: calc(100vh - 9.4rem);
+  min-height: calc(100vh - 9.4rem);
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -37,4 +32,12 @@ a {
 ::-webkit-scrollbar-thumb {
   border-radius: 0.25rem;
   background-color: lightgrey;
+}
+
+:root {
+  --light-blue: #2ebad3;
+  --cyan-dark: #408794;
+  --darker-cyan: #2d6974;
+
+  --input-height: 2.5rem;
 }

@@ -5,6 +5,8 @@ const rankingContext = createContext();
 export function StatesWrapper({ children }) {
   const [users, setUsers] = useState();
   const [loading, setLoading] = useState(true);
+  const [dropToggle, setDropToggle] = useState(false);
+  const [shopToggle, setShopToggle] = useState(false);
 
   async function getAPI() {
     const timer = setTimeout(async () => {
@@ -28,6 +30,10 @@ export function StatesWrapper({ children }) {
         users,
         setUsers,
         loading,
+        dropToggle,
+        setDropToggle,
+        setShopToggle,
+        shopToggle,
       }}
     >
       {children}
