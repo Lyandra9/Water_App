@@ -23,9 +23,14 @@
       align-items: center;
       background-color: rgb(236, 232, 232);
       border-radius: 2rem;
-      min-width: 4.2rem;
+      min-width: 4.7rem;
       padding: 0 0.5rem;
     }
+  }
+
+  .backArrow {
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   .waterDrop {

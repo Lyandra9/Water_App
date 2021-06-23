@@ -1,0 +1,17 @@
+.AlarmContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+        position: fixed;
+        width: 70%;
+    }
+}

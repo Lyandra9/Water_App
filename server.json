@@ -1,0 +1,121 @@
+{
+  "user": [
+    {
+      "logged": true,
+      "name": "Carlinhos",
+      "weight": "80",
+      "birthdate": "2021-06-22",
+      "username": "C",
+      "totalWater": 2800,
+      "drankWater": 4250,
+      "score": 0,
+      "id": 2
+    },
+    {
+      "logged": false,
+      "name": "Pedrinhos",
+      "weight": "60",
+      "birthdate": "2021-06-08",
+      "username": "pe",
+      "totalWater": 2100,
+      "drankWater": 7750,
+      "score": 1100,
+      "id": 3
+    }
+  ],
+  "alarms": [],
+  "products": [
+    {
+      "id": 1,
+      "name": "Duckieee",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 2,
+      "name": "Duckie1",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 3,
+      "name": "Duckie2",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 4,
+      "name": "Duckie3",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 5,
+      "name": "Duckie4",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 6,
+      "name": "Duckie5",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 7,
+      "name": "Duckie6",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 8,
+      "name": "Duckie7",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 9,
+      "name": "Duckie8",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 10,
+      "name": "Duckie9",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    },
+    {
+      "id": 11,
+      "name": "Duckie10",
+      "image": "pexels-anthony-132464.jpg",
+      "price": 200
+    }
+  ],
+  "gallery": [
+    {
+      "userId": 4,
+      "name": "Duckieee",
+      "image": "pexels-anthony-132464.jpg",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "name": "Duckie3",
+      "image": "pexels-anthony-132464.jpg",
+      "id": 2
+    },
+    {
+      "userId": 4,
+      "name": "Duckie3",
+      "image": "pexels-anthony-132464.jpg",
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "name": "Duckieee",
+      "image": "pexels-anthony-132464.jpg",
+      "id": 4
+    }
+  ]
+}

@@ -5,39 +5,40 @@
   color: var(--cyan-dark);
   font-size: 1.2rem;
   width: 100%;
-  position: relative;
 
   .productsContainer {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-width: 70%;
-
-    .controller {
-      position: absolute;
-      background-color: var(--cyan-dark);
-      border-radius: 50%;
-      width: 2.5rem;
-      height: 2.5rem;
-      border: none;
-      outline: transparent;
-      font-size: 2rem;
-      color: #fff;
-      top: 100px;
-      right: -50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      &:nth-child(2) {
-        left: -50px;
-      }
-    }
+    width: 85%;
 
     .carrouselContainer {
+      cursor: pointer;
       display: flex;
       flex-direction: row;
+      margin: 0 1rem;
+    }
+  }
+
+  .allProductsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    width: 100%;
+
+    .allTitle {
+      border-top: 1px solid var(--cyan-dark);
+      padding-top: 3rem;
+      margin-top: 3rem;
+      width: 50%;
+      text-align: center;
+    }
+    .products {
+      width: 90%;
+      margin-bottom: 2rem;
+
+      img {
+        width: 100%;
+      }
     }
   }
 }

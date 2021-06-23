@@ -1,25 +1,37 @@
+.none {
+  display: none;
+}
 .navContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
   min-height: 3rem;
   color: var(--cyan-dark);
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+
+  .navColMain {
+    background-color: rgb(219, 232, 235);
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+  }
 
   .navCol {
-    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 1rem;
+    width: 100%;
 
     &:hover {
-      background-color: rgb(248, 242, 242);
+      background-color: rgb(229, 238, 240);
       cursor: pointer;
       .menuIcon {
         color: var(--darker-cyan);
       }
-    }
-
-    &:active,
-    &:focus-within {
-      background-color: black;
     }
   }
 }

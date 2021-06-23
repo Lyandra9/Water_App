@@ -7,10 +7,10 @@ export default function Measurer() {
   return (
     <div className={styles.measurerContainer}>
       <div className={styles.circleContainer}>
-        <div className={styles.internalCircle}>
+        <div className={drankWater >= totalWater ? styles.dark : styles.internalCircle}>
           <div className={styles.dataCircle}>
             <h3>
-              {drankWater} <span>/</span> {totalWater}ml
+              {drankWater} / {totalWater}ml
             </h3>
           </div>
         </div>

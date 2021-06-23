@@ -1,41 +1,54 @@
-import { useAccountContext } from "../../context/accountContext";
-import { useScoreContext } from "../../context/scoreContext";
-import { useRouter } from "next/router";
 import styles from "./infopop.module.scss";
+import { useRouter } from "next/router";
+import { api } from "../../services/api";
 
 export default function InfoPop() {
   const router = useRouter();
-  const { setName, setWeight, setBirthdate } = useAccountContext();
-  const { setTotalWater } = useScoreContext();
 
-  function getValues(e) {
+
+  async function getValues(e) {
     e.preventDefault();
-    setName(e.target.elements.name.value);
-    setWeight(e.target.elements.weight.value);
-    setBirthdate(e.target.elements.birthdate.value);
-    setTotalWater(e.target.elements.weight.value * 35);
+    await api.post("/user", {
+      logged: false,
+      name: e.target.elements.name.value,
+      weight: e.target.elements.weight.value,
+      birthdate: e.target.elements.birthdate.value,
+      username: e.target.elements.username.value,
+      totalWater: e.target.elements.weight.value * 35,
+      drankWater: 0,
+      score: 0,
+    });
+    router.push("/login");
 
-    e.target.elements.name.value = "";
-    e.target.elements.weight.value = "";
-    e.target.elements.birthdate.value = "";
-
-    router.push("/");
+    // await api.put("user/", {
+    //   logged: false,
+    //   name: e.target.elements.name.value,
+    //   weight: e.target.elements.weight.value,
+    //   birthdate: e.target.elements.birthdate.value,
+    //   username: e.target.elements.username.value,
+    //   totalWater: e.target.elements.weight.value * 35,
+    //   drankWater: 0,
+    //   score: 0,
+    // });
   }
 
   return (
     <div className={styles.formContainer}>
-      <h2>Your Info</h2>
+      <h2>Create your account</h2>
       <form action="" onSubmit={getValues}>
         <label htmlFor="name">Name</label>
         <input type="text" name="name" required />
+
+        <label htmlFor="username">Username</label>
+        <input type="text" name="username" required />
 
         <label htmlFor="weight">Weight</label>
         <input type="number" name="weight" required />
 
         <label htmlFor="birthdate">Birthdate</label>
-        <input type="date" name="birthdate" />
+        <input type="date" name="birthdate" required />
 
-        <button type="submit">Submit</button>
+        <button type="submit">Sign up</button>
       </form>
     </div>
   );

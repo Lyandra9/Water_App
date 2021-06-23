@@ -18,6 +18,34 @@
     justify-content: center;
     align-items: center;
 
+    .dark {
+      background-color: var(--darker-cyan);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 95%;
+      height: 95%;
+      border-radius: 50%;
+
+      .dataCircle {
+        position: absolute;
+        width: 95%;
+        height: 95%;
+        background-color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 20;
+
+        h3 {
+          font-size: 2.2rem;
+          color: var(--cyan-dark);
+        }
+      }
+    }
+
     .internalCircle {
       display: flex;
       justify-content: center;
@@ -38,6 +66,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 20;
 
         h3 {
           font-size: 2.2rem;

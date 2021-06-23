@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 7rem;
+    cursor: grab;
+    
+    .trash {
+        cursor: pointer;
+        background-color: var(--darker-cyan);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30%;
+        height: 7rem;
+        animation: growing ease 0.2s;
+      
+    }
+
+    .trashHidden {
+        display: none;
+        width: 0;
+        height: 7rem;
+        box-shadow: none;
+        border: none;
+        transition: all 1s;
+    }
+
+    .info {
+        width: 70%;
+        max-width: 70%;
+        height: 100%;
+        padding-left: 1rem;
+
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    h3 {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@keyframes growing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 30%;
+    }
+    
+}

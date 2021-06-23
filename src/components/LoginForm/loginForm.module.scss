@@ -1,0 +1,68 @@
+.formContainer {
+    padding: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    h2 {
+      color: var(--cyan-dark);
+      text-align: center;
+    }
+  
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+  
+      input[type="date"] {
+        padding-right: 1rem;
+      }
+  
+      input {
+        border: 1px solid var(--light-blue);
+        border-radius: 2rem;
+        height: var(--input-height);
+        color: var(--cyan-dark);
+        padding-left: 1.2rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+        transition: transform 0.5s;
+  
+        &:focus {
+          border: 2px solid var(--light-blue);
+          transform: scale(1.1);
+        }
+      }
+  
+      label {
+        color: var(--cyan-dark);
+        margin-bottom: 0.5rem;
+        margin-left: 1.4rem;
+      }
+  
+      button {
+        height: 2.5rem;
+        border-radius: 2rem;
+        border: none;
+        outline: transparent;
+        background-color: var(--cyan-dark);
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+      }
+    }
+    .signUpButton {
+      height: 2.5rem;
+      border-radius: 2rem;
+      border: 1px solid var(--cyan-dark);
+      outline: transparent;
+      background-color: #fff;
+      color: var(--cyan-dark);
+      font-size: 1rem;
+      margin-top: 0.7rem;
+      cursor: pointer;
+    }
+    
+
+  }
+
