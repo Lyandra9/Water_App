@@ -2,14 +2,15 @@
     color: var(--cyan-dark);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
+    width: 100;    
+    height: 80vh;
 
     .galleryProductContainer {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: fle;
         flex-direction: column;
         box-shadow: 1px 2px 5px rgba(0,0,0,0.4);
         margin-top: 1rem;

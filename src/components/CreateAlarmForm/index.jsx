@@ -45,10 +45,12 @@ export default function CreateAlarmForm({ set }) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const clei = await api.get("/alarms");
-    console.log("aaaa", clei)
+    const t = await api.get('/user')
+    const tao = t.data.find((el) => el.logged)
+    const p = await api.get(`/alarms`);
+    const clei = p.data.filter((el) => el.userId == tao.id)
     const tinho = {
+      userId: tao.id,
       Aname: e.target.elements.name.value,
       Atime: e.target.elements.datetime.value,
       Astate: true,
@@ -68,23 +70,23 @@ export default function CreateAlarmForm({ set }) {
     if (clei[0]) {
       await clei.map((el) => {
         if (el.Atime == tinho.Atime) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.sunday == tinho.Arepeat.sunday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.monday == tinho.Arepeat.monday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.tuesday == tinho.Arepeat.tuesday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.wednesday == tinho.Arepeat.wednesday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.thursday == tinho.Arepeat.thursday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.friday == tinho.Arepeat.friday) {
-          setCreateToggle(false)
-        } else if (el.Arepeat.saturday == tinho.Arepeat.saturday) {
-          setCreateToggle(false)
-        } else {
-          setCreateToggle(true)
+          if (tinho.Arepeat.sunday && el.Arepeat.sunday == tinho.Arepeat.sunday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.monday && el.Arepeat.monday == tinho.Arepeat.monday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.tuesday && el.Arepeat.tuesday == tinho.Arepeat.tuesday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.wednesday && el.Arepeat.wednesday == tinho.Arepeat.wednesday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.thursday && el.Arepeat.thursday == tinho.Arepeat.thursday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.friday && el.Arepeat.friday == tinho.Arepeat.friday) {
+            setCreateToggle(false)
+          } else if (tinho.Arepeat.saturday && el.Arepeat.saturday == tinho.Arepeat.saturday) {
+            setCreateToggle(false)
+          } else {
+            setCreateToggle(true)
+          }
         }
       })
     }

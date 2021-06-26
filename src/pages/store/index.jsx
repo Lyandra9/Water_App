@@ -7,11 +7,12 @@ import { useScoreContext } from "../../context/scoreContext";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useRouter } from "next/router";
+import { GiTwoCoins } from "react-icons/gi";
 
 export default function Store(props) {
   const [temp, setTemp] = useState([]);
   const [products, setProducts] = useState([])
-  const { setDropToggle, setShopToggle } = useRankingContext();
+  const { setDropToggle, setShopToggle, toggler } = useRankingContext();
   const { setName, setDrankWater, setTotalWater, setScore } = useScoreContext();
   const Router = useRouter();
 
@@ -28,6 +29,13 @@ export default function Store(props) {
     setProducts(products.data)
   }
 
+  function switchHandler(e) {
+    if (e.pageX <= 200) {
+      Router.push("/gallery")
+    } else {
+      Router.push("/config")
+    }
+  }
 
   useEffect(() => {
     if (props.logged === false) {
@@ -45,20 +53,44 @@ export default function Store(props) {
   }, []);
 
   return (
-    <div>
-      <div className={styles.shop}>
-        <h2>Shop</h2>
-        <div className={styles.productsContainer}>
-          <Carousel
-            interval={3000}
-            autoPlay={true}
-            emulateTouch={true}
-            infiniteLoop={true}
-            showArrows={false}
-            showIndicators={false}
-            showThumbs={false}
-            showStatus={false}
-          >
+    <>
+      {toggler && (
+        <div className={styles.money}>
+          <GiTwoCoins className={styles.coinIcon} />
+          <h2>Sorry, you dont have enough coins</h2>
+        </div>)
+      }
+      <div draggable onDragStart={switchHandler}>
+        <div className={styles.shop}>
+          <h2>Shop</h2>
+          <div className={styles.productsContainer}>
+            <Carousel
+              interval={3000}
+              autoPlay={true}
+              emulateTouch={true}
+              infiniteLoop={true}
+              showArrows={false}
+              showIndicators={false}
+              showThumbs={false}
+              showStatus={false}
+            >
+              {products[0] && products.map((el) => {
+                let bought = false
+                temp.map((elT) => {
+                  if (el.name == elT.name) {
+                    bought = true
+                  }
+                })
+                return (
+                  <div className={styles.carrouselContainer}>
+                    <Product bought={bought} id={props.id} LocalScore={props.score} productId={el.id} name={el.name} image={el.image} price={el.price} />
+                  </div>
+                );
+              })}
+            </Carousel>
+          </div>
+          <div className={styles.allProductsContainer}>
+            <h2 className={styles.allTitle}>All Products</h2>
             {products[0] && products.map((el) => {
               let bought = false
               temp.map((elT) => {
@@ -67,55 +99,33 @@ export default function Store(props) {
                 }
               })
               return (
-                <div className={styles.carrouselContainer}>
+                <div className={styles.products}>
                   <Product bought={bought} id={props.id} score={props.score} productId={el.id} name={el.name} image={el.image} price={el.price} />
                 </div>
               );
             })}
-          </Carousel>
-        </div>
-        <div className={styles.allProductsContainer}>
-          <h2 className={styles.allTitle}>All Products</h2>
-          {products[0] && products.map((el) => {
-            let bought = false
-            temp.map((elT) => {
-              if (el.name == elT.name) {
-                bought = true
-              }
-            })
-            return (
-              <div className={styles.products}>
-                <Product bought={bought} id={props.id} score={props.score} productId={el.id} name={el.name} image={el.image} price={el.price} />
-              </div>
-            );
-          })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
 export async function getServerSideProps() {
   const response = await api.get(`user`);
-  const data = [];
-  response.data.map((el) => {
-    console.log(el)
-    if (el.logged) {
-      data.push(el)
-    }
-  })
+  const data = response.data.find((el) => !!el.logged)
 
   return {
     props: {
-      id: data[0].id,
-      logged: data[0].logged,
-      name: data[0].name,
-      weight: data[0].weight,
-      username: data[0].username,
-      birthdate: data[0].birthdate,
-      totalWater: data[0].totalWater,
-      drankWater: data[0].drankWater,
-      score: data[0].score,
+      id: data.id,
+      logged: data.logged,
+      name: data.name,
+      weight: data.weight,
+      username: data.username,
+      birthdate: data.birthdate,
+      totalWater: data.totalWater,
+      drankWater: data.drankWater,
+      score: data.score,
     },
   };
 }

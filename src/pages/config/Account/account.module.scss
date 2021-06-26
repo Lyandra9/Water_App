@@ -1,5 +1,5 @@
 .accountContainer {
-  padding: 0 2.5rem;
+  padding: 0 2.5rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +49,7 @@
       background-color: var(--cyan-dark);
       color: #fff;
       font-size: 1.5rem;
+      cursor: pointer;
     }
   }
 }

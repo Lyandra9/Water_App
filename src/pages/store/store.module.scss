@@ -1,3 +1,23 @@
+.money {
+  position: absolute;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  border-radius: 2rem;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  padding: 1rem;
+  font-size: 1rem;
+  top:0;
+  left: 0;
+  position: fixed;
+  z-index: 20;
+
+  .coinIcon {
+      margin-left: 1rem;
+    }
+}
+
 .shop {
   display: flex;
   flex-direction: column;

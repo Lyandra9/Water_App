@@ -4,13 +4,22 @@ import { useScoreContext } from "../context/scoreContext";
 import ButtonUpdate from "../components/ButtonUpdate";
 import { useEffect } from "react";
 import { api } from "../services/api";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 
 export default function Home(props) {
   const Router = useRouter();
   const { setDropToggle, setShopToggle } = useRankingContext();
   const { setName, setDrankWater, setTotalWater } = useScoreContext();
+
+  function switchHandler(e) {
+    console.log(e)
+    if (e.pageX <= 200) {
+      Router.push("/config")
+    } else {
+      Router.push("/gallery")
+    }
+  }
 
   useEffect(() => {
     if (props.logged) {
@@ -24,7 +33,7 @@ export default function Home(props) {
     }
   }, []);
   return (
-    <div>
+    <div draggable onDragStart={switchHandler}>
       <Measurer />
       <ButtonUpdate id={props.id} />
     </div>

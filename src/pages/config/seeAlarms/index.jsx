@@ -52,7 +52,7 @@ export default function seeAlarms(props) {
           )}
 
         </span>
-        {props.alarms == ![] && toggleNewAlarm == false && (
+        {props.alarms == [] && toggleNewAlarm == false && (
           <div className={styles.nothing}>
             <h3>Oops, nothing here!</h3>
             <BsArrow90DegUp className={styles.arrowUp} />
@@ -74,21 +74,28 @@ export default function seeAlarms(props) {
 
 
 export async function getServerSideProps() {
-  const response = await api.get("user/1");
-  const response1 = await api.get("alarms");
-  const user = {
-    id: response.data.id,
-    logged: response.data.logged,
-    name: response.data.name,
-    weight: response.data.weight,
-    birthdate: response.data.birthdate,
-    totalWater: response.data.totalWater,
-    drankWater: response.data.drankWater,
-    score: response.data.score,
+  const response = await api.get("/user")
+  const data = response.data.find((el) => !!el.logged)
+  const response1 = await api.get("/alarms");
+  let user;
+  if (data != undefined) {
+    user = {
+      id: data.id,
+      logged: data.logged,
+      name: data.name,
+      weight: data.weight,
+      birthdate: data.birthdate,
+      totalWater: data.totalWater,
+      drankWater: data.drankWater,
+      score: data.score,
+    }
+
   }
-  const alarms = []
-  response1.data.map((el) => {
+  const alarms = [];
+  const data1 = response1.data.filter((el) => el.userId == user.id)
+  data1.map((el) => {
     const NewObj = {
+      userId: el.userId,
       id: el.id,
       Aname: el.Aname,
       Atime: el.Atime,

@@ -10,7 +10,7 @@
 
   .circleContainer {
     position: absolute;
-    width: 90%;
+    width: 85%;
     height: 75%;
     border-radius: 50%;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -28,6 +28,7 @@
       height: 95%;
       border-radius: 50%;
 
+
       .dataCircle {
         position: absolute;
         width: 95%;
@@ -38,9 +39,10 @@
         justify-content: center;
         align-items: center;
         z-index: 20;
+  
 
         h3 {
-          font-size: 2.2rem;
+          font-size: 2rem;
           color: var(--cyan-dark);
         }
       }

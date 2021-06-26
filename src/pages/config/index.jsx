@@ -9,7 +9,7 @@ import { api } from "../../services/api";
 import { FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/router'
 import { BsGraphUp } from "react-icons/bs";
-import { AiOutlineDelete } from 'react-icons/ai'
+import { AiOutlineDelete } from 'react-icons/ai';
 
 export default function Config(props) {
   const [deleteToggle, setDeleteToggle] = useState(false)
@@ -44,6 +44,14 @@ export default function Config(props) {
 
   }
 
+  function switchHandler(e) {
+    if (e.pageX <= 200) {
+      router.push("/store")
+    } else {
+      router.push("/")
+    }
+  }
+
   async function logoutHandler() {
     setName("Visitor")
     api.patch(`user/${props.id}`, {
@@ -62,7 +70,7 @@ export default function Config(props) {
   }, []);
   return (
     <>
-      <div className={styles.configContainer}>
+      <div draggable onDragStart={switchHandler} className={styles.configContainer}>
         <h2>Config.</h2>
         <div className={styles.configOptionsContainer}>
           <ul>
@@ -111,26 +119,20 @@ export default function Config(props) {
 }
 
 export async function getServerSideProps() {
-  const response = await api.get(`/user`);
-  const data = [];
-  response.data.map((el) => {
-    console.log(el)
-    if (el.logged) {
-      data.push(el)
-    }
-  })
+  const response = await api.get(`user`);
+  const data = response.data.find((el) => !!el.logged)
 
   return {
     props: {
-      id: data[0].id,
-      logged: data[0].logged,
-      name: data[0].name,
-      weight: data[0].weight,
-      username: data[0].username,
-      birthdate: data[0].birthdate,
-      totalWater: data[0].totalWater,
-      drankWater: data[0].drankWater,
-      score: data[0].score,
-    } || {},
+      id: data.id,
+      logged: data.logged,
+      name: data.name,
+      weight: data.weight,
+      username: data.username,
+      birthdate: data.birthdate,
+      totalWater: data.totalWater,
+      drankWater: data.drankWater,
+      score: data.score,
+    },
   };
 }

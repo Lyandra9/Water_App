@@ -4,8 +4,10 @@ import { FiShoppingCart } from 'react-icons/fi'
 import styles from './gallery.module.scss'
 import { useScoreContext } from '../../context/scoreContext';
 import { useRankingContext } from '../../context/rankingContext';
+import { useRouter } from "next/router";
 
 export default function Gallery(props) {
+    const Router = useRouter();
     const { setName, setDrankWater, setTotalWater } = useScoreContext();
     const { setDropToggle, setShopToggle } = useRankingContext();
     const [gallery, setGallery] = useState([])
@@ -16,6 +18,15 @@ export default function Gallery(props) {
         setGallery(data)
     }
 
+    function switchHandler(e) {
+        if (e.pageX <= 200) {
+            Router.push("/")
+        } else {
+            Router.push("/store")
+        }
+    }
+
+
     async function service() {
         if (gallery[0]) {
             const gf = await gallery.find(el => el.userId == props.id)
@@ -24,6 +35,8 @@ export default function Gallery(props) {
             } else {
                 setToggler(true)
             }
+        } else {
+            setToggler(true)
         }
     }
 
@@ -36,15 +49,15 @@ export default function Gallery(props) {
         setDrankWater(props.drankWater);
         setTotalWater(props.totalWater);
         setDropToggle(false);
-        setShopToggle(true);
+        setShopToggle(false);
         if (!gallery[0]) {
             getAPI();
         }
         service();
-    })
+    }, [])
 
     return (
-        <div className={styles.gallery}>
+        <div draggable onDragStart={switchHandler} className={styles.gallery}>
             <h2>Gallery</h2>
             {gallery[0] && gallery.map((el) => {
                 if (el.userId == props.id) {
@@ -68,25 +81,19 @@ export default function Gallery(props) {
 
 export async function getServerSideProps() {
     const response = await api.get(`user`);
-    const data = [];
-    response.data.map((el) => {
-        console.log(el)
-        if (el.logged) {
-            data.push(el)
-        }
-    })
+    const data = response.data.find((el) => !!el.logged)
 
     return {
         props: {
-            id: data[0].id,
-            logged: data[0].logged,
-            name: data[0].name,
-            weight: data[0].weight,
-            username: data[0].username,
-            birthdate: data[0].birthdate,
-            totalWater: data[0].totalWater,
-            drankWater: data[0].drankWater,
-            score: data[0].score,
+            id: data.id,
+            logged: data.logged,
+            name: data.name,
+            weight: data.weight,
+            username: data.username,
+            birthdate: data.birthdate,
+            totalWater: data.totalWater,
+            drankWater: data.drankWater,
+            score: data.score,
         },
     };
 }

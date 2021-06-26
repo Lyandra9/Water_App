@@ -15,7 +15,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 30%;
+        width: 35%;
         height: 7rem;
         animation: growing ease 0.2s;
       
@@ -27,7 +27,7 @@
         height: 7rem;
         box-shadow: none;
         border: none;
-        transition: all 1s;
+        animation: smol ease 0.2s;
     }
 
     .info {
@@ -56,7 +56,17 @@
         width: 0;
     }
     to {
-        width: 30%;
+        width: 40%;
+    }
+    
+}
+
+@keyframes smol {
+    from {
+        width: 40%;
+    }
+    to {
+        width: 0;
     }
     
 }

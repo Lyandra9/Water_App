@@ -8,7 +8,7 @@ export function StatesWrapper({ children }) {
   const [loading, setLoading] = useState(true);
   const [dropToggle, setDropToggle] = useState(false);
   const [shopToggle, setShopToggle] = useState(false);
-
+  const [toggler, setToggler] = useState(false)
 
 
   return (
@@ -22,6 +22,8 @@ export function StatesWrapper({ children }) {
         setDropToggle,
         setShopToggle,
         shopToggle,
+        toggler,
+        setToggler
       }}
     >
       {children}

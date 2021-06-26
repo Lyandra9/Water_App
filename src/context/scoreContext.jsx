@@ -7,7 +7,9 @@ export function ScoreWrapper({ children }) {
   const [name, setName] = useState("");
   const [drankWater, setDrankWater] = useState(0);
   const [totalWater, setTotalWater] = useState(0);
-  const [logId, setLogId] = useState();
+  const [time, setTime] = useState(0);
+  const [day, setDay] = useState();
+  const [ringToggler, setRingToggler] = useState({ status: false, currentAlarm: 0 });
 
   return (
     <scoreContext.Provider
@@ -20,8 +22,12 @@ export function ScoreWrapper({ children }) {
         setName,
         totalWater,
         setTotalWater,
-        logId,
-        setLogId
+        time,
+        setTime,
+        day,
+        setDay,
+        ringToggler,
+        setRingToggler
       }}
     >
       {children}

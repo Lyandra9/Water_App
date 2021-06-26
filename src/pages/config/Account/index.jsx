@@ -37,7 +37,7 @@ export default function Account(props) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    api.patch("user/1", {
+    api.patch(`/user/${props.id}`, {
       name: e.target.elements.changeName.value
         ? e.target.elements.changeName.value
         : props.name,
@@ -60,7 +60,7 @@ export default function Account(props) {
     setTimeout(() => {
       setChangesSaved(false);
       Router.push("/");
-    }, 2000);
+    }, 1000);
 
   }
 
@@ -126,25 +126,19 @@ export default function Account(props) {
 
 export async function getServerSideProps() {
   const response = await api.get(`user`);
-  const data = [];
-  response.data.map((el) => {
-    console.log(el)
-    if (el.logged) {
-      data.push(el)
-    }
-  })
+  const data = response.data.find((el) => !!el.logged)
 
   return {
     props: {
-      id: data[0].id,
-      logged: data[0].logged,
-      name: data[0].name,
-      weight: data[0].weight,
-      username: data[0].username,
-      birthdate: data[0].birthdate,
-      totalWater: data[0].totalWater,
-      drankWater: data[0].drankWater,
-      score: data[0].score,
+      id: data.id,
+      logged: data.logged,
+      name: data.name,
+      weight: data.weight,
+      username: data.username,
+      birthdate: data.birthdate,
+      totalWater: data.totalWater,
+      drankWater: data.drankWater,
+      score: data.score,
     },
   };
 }
