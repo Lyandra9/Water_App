@@ -8,6 +8,7 @@ import { api } from "../../../services/api";
 import { format } from "date-fns";
 import Lottie from 'react-lottie';
 import animationData from '../../../lotties/blue-check-animation.json';
+import Head from "next/head";
 
 export default function Account(props) {
 
@@ -66,6 +67,11 @@ export default function Account(props) {
 
   return (
     <div className={styles.accountContainer}>
+      <Head>
+        <title>
+          Account
+        </title>
+      </Head>
       <h2>Account</h2>
       <div className={styles.col1}>
         <form action="" onSubmit={handleSubmit}>

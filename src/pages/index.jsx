@@ -5,7 +5,7 @@ import ButtonUpdate from "../components/ButtonUpdate";
 import { useEffect } from "react";
 import { api } from "../services/api";
 import { useRouter } from "next/router";
-
+import Head from 'next/head';
 
 export default function Home(props) {
   const Router = useRouter();
@@ -13,7 +13,6 @@ export default function Home(props) {
   const { setName, setDrankWater, setTotalWater } = useScoreContext();
 
   function switchHandler(e) {
-    console.log(e)
     if (e.pageX <= 200) {
       Router.push("/config")
     } else {
@@ -34,6 +33,9 @@ export default function Home(props) {
   }, []);
   return (
     <div draggable onDragStart={switchHandler}>
+      <Head>
+        <title>Home</title>
+      </Head>
       <Measurer />
       <ButtonUpdate id={props.id} />
     </div>
@@ -48,7 +50,6 @@ export async function getServerSideProps() {
       data.push(el)
     }
   })
-  console.log(data)
 
   return {
     props: {

@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { api } from "../../services/api";
 import Lottie from 'react-lottie';
 import animationData from '../../lotties/loading-spinner.json';
+import Head from "next/head";
 
 export default function Ranking(props) {
   const { users, loading, setLoading, setDropToggle, setShopToggle, setUsers } = useRankingContext();
@@ -44,6 +45,11 @@ export default function Ranking(props) {
 
   return (
     <div className={styles.rankingContainer}>
+      <Head>
+        <title>
+          Ranking
+        </title>
+      </Head>
       <h2>Ranking</h2>
       <div className={styles.listContainer}>
         <ul>

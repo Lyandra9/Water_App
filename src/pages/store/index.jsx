@@ -8,6 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import { useRouter } from "next/router";
 import { GiTwoCoins } from "react-icons/gi";
+import Head from 'next/head';
 
 export default function Store(props) {
   const [temp, setTemp] = useState([]);
@@ -54,6 +55,11 @@ export default function Store(props) {
 
   return (
     <>
+      <Head>
+        <title>
+          Store
+        </title>
+      </Head>
       {toggler && (
         <div className={styles.money}>
           <GiTwoCoins className={styles.coinIcon} />

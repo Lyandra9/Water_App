@@ -109,6 +109,22 @@
         "saturday": false
       },
       "id": 4
+    },
+    {
+      "userId": 5,
+      "Aname": "dldldldl",
+      "Atime": "14:31",
+      "Astate": true,
+      "Arepeat": {
+        "sunday": false,
+        "monday": false,
+        "tuesday": false,
+        "wednesday": true,
+        "thursday": true,
+        "friday": false,
+        "saturday": false
+      },
+      "id": 5
     }
   ],
   "products": [

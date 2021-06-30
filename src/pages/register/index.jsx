@@ -1,5 +1,13 @@
 import InfoPop from "../../components/InfoPop";
+import Head from 'next/head';
 
 export default function Register() {
-  return <InfoPop />;
+  return (
+    <>
+      <Head>
+        <title> Register</title>
+      </Head>
+      <InfoPop />
+    </>
+  )
 }

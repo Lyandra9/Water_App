@@ -8,10 +8,11 @@ import CreateAlarmForm from "../../../components/CreateAlarmForm";
 import AlarmBlock from '../../../components/AlarmBlock';
 import { BsArrow90DegUp } from 'react-icons/bs';
 import { BsArrow90DegLeft } from 'react-icons/bs';
+import Head from 'next/head';
 
 export default function seeAlarms(props) {
   const { setDropToggle, setShopToggle } = useRankingContext();
-  const { setName, setTotalWater, setDrankWater } = useScoreContext();
+  const { setName, setTotalWater, setDrankWater, day, time } = useScoreContext();
   const [toggleNewAlarm, setToggleNewAlarm] = useState(false);
   const [plusToggle, setPlusToggle] = useState(false)
 
@@ -40,6 +41,12 @@ export default function seeAlarms(props) {
   }, []);
   return (
     <div className={styles.alarmsContainer}>
+      <div>
+        <h2>{time}</h2>
+      </div>
+      <Head>
+        <title>Alarms</title>
+      </Head>
       <div className={styles.content}>
         <h2>Alarms</h2>
         <span onClick={alalaal}>
@@ -62,9 +69,8 @@ export default function seeAlarms(props) {
       </div>
       {toggleNewAlarm ? (<div><CreateAlarmForm set={setToggleNewAlarm} /></div>) : (<div className={styles.alarmsContainer}>
         {props.alarms.
-
           map((el) => {
-            return <AlarmBlock data={el} />
+            return < AlarmBlock data={el} />
           })}
       </div>)}
 

@@ -5,6 +5,7 @@ import styles from './gallery.module.scss'
 import { useScoreContext } from '../../context/scoreContext';
 import { useRankingContext } from '../../context/rankingContext';
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 export default function Gallery(props) {
     const Router = useRouter();
@@ -58,6 +59,11 @@ export default function Gallery(props) {
 
     return (
         <div draggable onDragStart={switchHandler} className={styles.gallery}>
+            <Head>
+                <title>
+                    Gallery
+                </title>
+            </Head>
             <h2>Gallery</h2>
             {gallery[0] && gallery.map((el) => {
                 if (el.userId == props.id) {

@@ -10,6 +10,7 @@ import { FiLogOut } from 'react-icons/fi';
 import { useRouter } from 'next/router'
 import { BsGraphUp } from "react-icons/bs";
 import { AiOutlineDelete } from 'react-icons/ai';
+import Head from "next/head";
 
 export default function Config(props) {
   const [deleteToggle, setDeleteToggle] = useState(false)
@@ -71,6 +72,11 @@ export default function Config(props) {
   return (
     <>
       <div draggable onDragStart={switchHandler} className={styles.configContainer}>
+        <Head>
+          <title>
+            Config.
+          </title>
+        </Head>
         <h2>Config.</h2>
         <div className={styles.configOptionsContainer}>
           <ul>

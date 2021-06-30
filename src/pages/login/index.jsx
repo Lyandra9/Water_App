@@ -1,12 +1,16 @@
 import LoginForm from '../../components/LoginForm'
 import { api } from '../../services/api'
 import { Redirect } from '../../components/Router'
+import Head from "next/head";
 
 export default function Login({ logged }) {
 
 
     return (
         <>
+            <Head>
+                <title> Login </title>
+            </Head>
             {!logged ? <LoginForm /> : <Redirect to={"/"} />}
         </>
     )
